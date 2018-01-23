@@ -1,7 +1,7 @@
 {
   "src": {
     "tagName": "st3-%s",
-    "afterReleaseCommand": "echo \"${changelog}\" > messages/${version}.txt"
+    "afterReleaseCommand": "echo \"${changelog}\" > \"messages\/${version}.txt\""
   },
   "github": {
     "release": true,
