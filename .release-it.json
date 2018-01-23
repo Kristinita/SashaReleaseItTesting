@@ -1,0 +1,12 @@
+{
+  "src": {
+    "tagName": "st3-%s",
+    "afterReleaseCommand": "echo \"${changelog}\" > ${version}.txt"
+  },
+  "github": {
+    "release": true,
+    "tokenRef": "GITHUB_TOKEN",
+    "export_to_file": true,
+    "export_folder": "messages"
+  }
+}
