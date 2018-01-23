@@ -1,7 +1,7 @@
 {
+  "buildCommand": "echo \"${changelog}\" > \"messages\/${version}.txt\"",
   "src": {
-    "tagName": "st3-%s",
-    "buildCommand": "echo \"${changelog}\" > \"messages\/${version}.txt\""
+    "tagName": "st3-%s"
   },
   "github": {
     "release": true,
