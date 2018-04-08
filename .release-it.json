@@ -10,7 +10,7 @@
     },
     "safeBump": false,
     "src": {
-    	"addUntrackedFiles": false,
+    	"addUntrackedFiles": true,
         "tagName": "st3-%s"
     }
 }
