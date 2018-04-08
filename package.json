@@ -1,6 +1,6 @@
 {
   "name": "testing release-it",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "scripts": {
     "release": "release-it"
   }
