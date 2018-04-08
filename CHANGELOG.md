@@ -1,3 +1,9 @@
+#### 0.0.34 (2018-04-08)
+
+##### Build System / Dependencies
+
+* **release-it:**  Try addUntrackedFiles false ([34bbfec4](https://github.com/Kristinita/SashaReleaseItTesting/commit/34bbfec4ad0cad7af6a4126cdbb278f41a909fd3))
+
 #### 0.0.33 (2018-04-08)
 
 ##### Build System / Dependencies
