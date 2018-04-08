@@ -1,0 +1,8 @@
+#### 0.0.32 (2018-04-08)
+
+##### Build System / Dependencies
+
+* **release-it:**
+  *  Try 2 release-it option ([d3aa06a9](https://github.com/Kristinita/SashaReleaseItTesting/commit/d3aa06a930c72060dcc78931561e3021c8d06ee0))
+  *  Test addUntrackedFiles option ([e3acb9dd](https://github.com/Kristinita/SashaReleaseItTesting/commit/e3acb9dda90faa1c6a5d3483c922f7017291fe4c))
+

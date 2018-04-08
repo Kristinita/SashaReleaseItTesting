@@ -1,1 +1,0 @@
-"* [Test] Example commit for release (ab0d828)" 
