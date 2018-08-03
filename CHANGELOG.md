@@ -1,3 +1,9 @@
+#### 0.0.36 (2018-08-03)
+
+##### Tests
+
+* **release-it:**  try release-it at August 2018 ([d981d086](https://github.com/Kristinita/SashaReleaseItTesting/commit/d981d086439877b1393d1a6ba91bee35a7057b34))
+
 #### 0.0.35 (2018-04-08)
 
 ##### Build System / Dependencies
