@@ -12,7 +12,7 @@ hooks:
   # [NOTE] Checkout force required:
   # “error: Your local changes to the following files would be overwritten by checkout”
   # https://stackoverflow.com/a/32556166/5951529
-  before:release: git push origin SashaDevelop && git checkout -f master && git merge --no-ff SashaDevelop
+  before:release: git commit -m "Changelog ${version}" && it push origin SashaDevelop && git checkout -f master && git merge --no-ff SashaDevelop -X ours
   after:release: git checkout -b SashaDevelop
 git:
   addUntrackedFiles: true
