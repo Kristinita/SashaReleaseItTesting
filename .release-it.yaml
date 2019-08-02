@@ -1,0 +1,21 @@
+###################
+# Simple Git Flow #
+###################
+# https://ru.stackoverflow.com/a/573773/199934
+# All release-it options:
+# https://github.com/release-it/release-it/blob/master/conf/release-it.json
+# [INFO] Hooks:
+# https://github.com/release-it/release-it#hooks
+hooks:
+# [INFO] Merge branches with commit, use “-no-ff”:
+# https://ru.stackoverflow.com/a/573773/199934
+- "before:release": git checkout master && git merge --no-ff SashaDevelop
+- "after:release": git checkout -b SashaDevelop
+git:
+  changelog: changelog -f -
+  tagName: st3-%s
+github:
+  release: true
+  tokenRef: GITHUB_TOKEN
+npm:
+  publish: false
