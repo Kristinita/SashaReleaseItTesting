@@ -7,12 +7,22 @@
 # [INFO] Hooks:
 # https://github.com/release-it/release-it#hooks
 hooks:
-# [INFO] Merge branches with commit, use “-no-ff”:
-# https://ru.stackoverflow.com/a/573773/199934
-- "before:release": git checkout master && git merge --no-ff SashaDevelop
-- "after:release": git checkout -b SashaDevelop
+  # [INFO] Merge branches with commit, use “-no-ff”:
+  # https://ru.stackoverflow.com/a/573773/199934
+  # [NOTE] Checkout force required:
+  # “error: Your local changes to the following files would be overwritten by checkout”
+  # https://stackoverflow.com/a/32556166/5951529
+  before:release: git push origin SashaDevelop && git checkout -f master && git merge --no-ff SashaDevelop
+  after:release: git checkout -b SashaDevelop
 git:
+  addUntrackedFiles: true
   changelog: changelog -f -
+  # [NOTE] Required:
+  # “ERROR Working dir must be clean.”
+  requireCleanWorkingDir: false
+  # [NOTE] Required:
+  # “ERROR No upstream configured for current branch.”
+  requireUpstream: false
   tagName: st3-%s
 github:
   release: true
