@@ -14,7 +14,7 @@ hooks:
   # https://stackoverflow.com/a/32556166/5951529
   # [NOTE] “-X theirs” for solving merge conflicts:
   # https://stackoverflow.com/a/36820819/5951529
-  before:release: git commit -m "Changelog ${version}" && git push origin SashaDevelop && git checkout -f master && git merge --no-ff SashaDevelop -X theirs
+  before:release: git commit -m "Changelog ${version}" && git push origin SashaDevelop && git checkout -f master && git merge --no-ff SashaDevelop -s ours
   after:release: git checkout -b SashaDevelop
 git:
   # [NOTE] Required:
