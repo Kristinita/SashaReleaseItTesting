@@ -1,7 +1,22 @@
-###################
-# Simple Git Flow #
-###################
+##############
+# release-it #
+##############
+# release-it — automated versioning:
+# https://www.npmjs.com/package/release-it
+# All settings:
+# https://github.com/release-it/release-it/blob/master/conf/release-it.json
+# Hooks:
+# https://www.npmjs.com/package/release-it#hooks
+# [INFO] Use “.yaml”, not “.yml” extension, when possible:
+# https://interviewbubble.com/solved-yaml-or-yml-which-do-we-prefer/
+# GitLab Flow:
+# https://docs.gitlab.com/ee/workflow/gitlab_flow.html
+# https://habr.com/ru/company/softmart/blog/316686/
+# Simple Git workflow (Atlassian):
+# https://www.atlassian.com/blog/archives/simple-git-workflow-simple
 # https://ru.stackoverflow.com/a/573773/199934
+# [NOTE] I don't use GitFlow, it for big projects:
+# https://datasift.github.io/gitflow/IntroducingGitFlow.html
 # All release-it options:
 # https://github.com/release-it/release-it/blob/master/conf/release-it.json
 # [INFO] Hooks:
@@ -9,38 +24,59 @@
 hooks:
   # [INFO][YAML] Block notation for multiline:
   # https://stackoverflow.com/a/49685727/5951529
+  # [WARNING] Comments must be before first command, otherwise YAML will be errored;
+  # compare:
+  # http://yaml-online-parser.appspot.com/?yaml=yaml%3A%0A++%23+Comment%0A++Kira%0A++Goddess%0A&type=json
+  # http://yaml-online-parser.appspot.com/?yaml=yaml%3A+%0A++Kira%0A++%23+Comment%0A++Goddess%0A&type=json
+  # [INFO][STAGE] Before “git add . --all”:
   before:bump:
+    # [INFO] Append changes to top of CHANGELOG.md:
+    # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
     changelog -f - | cat - CHANGELOG.md > temp &&
     mv temp CHANGELOG.md
   # [INFO] Merge branches with commit, use “-no-ff”:
   # https://ru.stackoverflow.com/a/573773/199934
-  # [NOTE] Checkout force required:
-  # “error: Your local changes to the following files would be overwritten by checkout”
-  # https://stackoverflow.com/a/32556166/5951529
-  # [INFO] Overwrite master branch from SashaDevelop branch:
-  # https://stackoverflow.com/a/2763118/5951529
-  # https://github.com/Kristinita/SashaGitHub/commit/016ea890a1f8a7facfb357e2f244c22ee5aff94c
+  # [INFO][STAGE] After “git add . --all”:
   before:release:
+    # [INFO] Commit and push CHANGELOG changes:
+    # [INFO] Overwrite master branch from SashaDevelop branch:
+    # https://stackoverflow.com/a/2763118/5951529
+    # https://github.com/Kristinita/SashaGitHub/commit/016ea890a1f8a7facfb357e2f244c22ee5aff94c
+    # [NOTE] Checkout force required, because you can have an error:
+    # “error: Your local changes to the following files would be overwritten by checkout”
+    # https://stackoverflow.com/a/32556166/5951529
     git commit -m "Changelog ${version}" &&
     git push origin HEAD &&
     git merge --no-ff --strategy=ours master &&
     git checkout -f master &&
     git merge --no-ff SashaDevelop
+  # [INFO][STAGE] Run after all actions
+  # [INFO] Return to dev branch:
   after:release: git checkout SashaDevelop
 git:
-  # [NOTE] Required:
+  # [NOTE] Required, details:
   # https://github.com/release-it/release-it/issues/233
   addUntrackedFiles: true
+  # [INFO] Output, that will be in tag page, example:
+  # https://github.com/Kristinita/SashaReleaseItTesting/releases/tag/st3-0.1.5
   changelog: changelog -f -
-  # [NOTE] Required:
+  # [NOTE] Required; changes must be added for commit:
   # “ERROR Working dir must be clean.”
+  # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#clean-working-directory
   requireCleanWorkingDir: false
   # [NOTE] Required:
   # “ERROR No upstream configured for current branch.”
+  # I run release-it in dev branch, that not upstream.
+  # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#upstream-branch
   requireUpstream: false
+  # [INFO] Use for Sublime Text packages releases; don't change this key for another releases:
+  # https://github.com/wbond/package_control/issues/1217#issuecomment-280041797
   tagName: st3-%s
 github:
   release: true
+  # [INFO] “GITHUB_TOKEN” environment variable:
+  # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#Another-lines
   tokenRef: GITHUB_TOKEN
+# [INFO] Don't publish to NPM, if your package not for Node.js:
 npm:
   publish: false
