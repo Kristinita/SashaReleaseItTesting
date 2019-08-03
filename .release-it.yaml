@@ -10,7 +10,7 @@ hooks:
   # [INFO][YAML] Block notation for multiline:
   # https://stackoverflow.com/a/49685727/5951529
   before:bump:
-    changelog -f - | cat - CHANGELOG.md > temp
+    changelog -f - | cat - CHANGELOG.md > temp &&
     mv temp CHANGELOG.md
   # [INFO] Merge branches with commit, use “-no-ff”:
   # https://ru.stackoverflow.com/a/573773/199934
