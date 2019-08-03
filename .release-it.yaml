@@ -25,7 +25,8 @@ hooks:
   # [INFO][YAML] Block notation for multiline:
   # https://stackoverflow.com/a/49685727/5951529
   # [WARNING] Comments must be before first command, otherwise YAML will be errored;
-  # compare:
+  # https://github.com/yaml/yaml/issues/49
+  # Compare:
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A%0A++%23+Comment%0A++Kira%0A++Goddess%0A&type=json
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A+%0A++Kira%0A++%23+Comment%0A++Goddess%0A&type=json
   # [INFO][STAGE] Before “git add . --all”:
@@ -54,7 +55,8 @@ hooks:
   # [INFO] Return to dev branch:
   after:release: git checkout SashaDevelop
 git:
-  # [NOTE] I update “CHANGELOG.md” (and maybe another files), that must be tracked:
+  # [INFO] Must be “true” in my case;
+  # I update “CHANGELOG.md” (and maybe another files), that must be tracked:
   # https://github.com/release-it/release-it/issues/233
   addUntrackedFiles: true
   # [INFO] Output, that will be in tag page, example:
@@ -63,7 +65,8 @@ git:
   # [INFO] Check, that all files added and commited, if no — error:
   # “ERROR Working dir must be clean.”
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#clean-working-directory
-  requireCleanWorkingDir: true
+  # [NOTE] Useless option, if “addUntrackedFiles”: true
+  # requireCleanWorkingDir: true
   # [INFO] That prevent blank commits:
   # https://github.com/release-it/release-it/blob/master/docs/recipes/require-commits.md
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#no-commits
@@ -73,7 +76,7 @@ git:
   # I run release-it in dev branch, that not upstream.
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#upstream-branch
   requireUpstream: false
-  # [INFO] Use for Sublime Text packages releases; don't change this key for another releases:
+  # [INFO] Use for Sublime Text packages releases; don't change value of this key for another releases:
   # https://github.com/wbond/package_control/issues/1217#issuecomment-280041797
   tagName: st3-%s
 github:
