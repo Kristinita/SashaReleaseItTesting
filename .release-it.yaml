@@ -7,7 +7,7 @@
 # https://github.com/release-it/release-it/blob/master/conf/release-it.json
 # Hooks:
 # https://www.npmjs.com/package/release-it#hooks
-# [INFO] Use “.yaml”, not “.yml” extension, when possible:
+# [NOTE] Use “.yaml”, not “.yml” extension, when possible:
 # https://interviewbubble.com/solved-yaml-or-yml-which-do-we-prefer/
 # GitLab Flow:
 # https://docs.gitlab.com/ee/workflow/gitlab_flow.html
@@ -54,16 +54,20 @@ hooks:
   # [INFO] Return to dev branch:
   after:release: git checkout SashaDevelop
 git:
-  # [NOTE] Required, details:
+  # [NOTE] I update “CHANGELOG.md” (and maybe another files), that must be tracked:
   # https://github.com/release-it/release-it/issues/233
   addUntrackedFiles: true
   # [INFO] Output, that will be in tag page, example:
   # https://github.com/Kristinita/SashaReleaseItTesting/releases/tag/st3-0.1.5
   changelog: changelog -f -
-  # [NOTE] Required; changes must be added for commit:
+  # [INFO] Check, that all files added and commited, if no — error:
   # “ERROR Working dir must be clean.”
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#clean-working-directory
-  requireCleanWorkingDir: false
+  requireCleanWorkingDir: true
+  # [INFO] That prevent blank commits:
+  # https://github.com/release-it/release-it/blob/master/docs/recipes/require-commits.md
+  # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#no-commits
+  requireCommits: true
   # [NOTE] Required:
   # “ERROR No upstream configured for current branch.”
   # I run release-it in dev branch, that not upstream.
