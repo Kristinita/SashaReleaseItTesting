@@ -33,8 +33,7 @@ hooks:
   before:bump:
     # [INFO] Append changes to top of CHANGELOG.md:
     # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
-    changelog -f - | cat - CHANGELOG.md > temp &&
-    mv temp CHANGELOG.md
+    changelog -f - > CHANGELOG.md
   # [INFO] Merge branches with commit, use “-no-ff”:
   # https://ru.stackoverflow.com/a/573773/199934
   # [INFO][STAGE] After “git add . --all”:
@@ -43,6 +42,8 @@ hooks:
     # [INFO] Overwrite master branch from SashaDevelop branch:
     # https://stackoverflow.com/a/2763118/5951529
     # https://github.com/Kristinita/SashaGitHub/commit/016ea890a1f8a7facfb357e2f244c22ee5aff94c
+    # [LEARN][GIT] Merge previous branch:
+    # https://coderwall.com/p/klr_pq/checkout-merge-previous-branch
     # [NOTE] Checkout force required, because you can have an error:
     # “error: Your local changes to the following files would be overwritten by checkout”
     # https://stackoverflow.com/a/32556166/5951529
@@ -50,10 +51,13 @@ hooks:
     git push origin HEAD &&
     git merge --no-ff --strategy=ours master &&
     git checkout -f master &&
-    git merge --no-ff SashaDevelop
+    git merge --no-ff -
   # [INFO][STAGE] Run after all actions
   # [INFO] Return to dev branch:
-  after:release: git checkout SashaDevelop
+  # [LEARN][GIT] Checkout to previous branch:
+  # https://marcgg.com/blog/2015/10/18/git-checkout-minus/
+  # https://stackoverflow.com/a/33199051/5951529
+  after:release: git checkout -
 git:
   # [INFO] Must be “true” in my case;
   # I update “CHANGELOG.md” (and maybe another files), that must be tracked:
