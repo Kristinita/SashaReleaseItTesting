@@ -3,6 +3,21 @@
 ##### Build System / Dependencies
 
 * **git:**
+  *  try correct branch merging method (835ec0be)
+  *  try knittl method (afc53c66)
+  *  try -s theirs (2f6923ba)
+
+##### Bug Fixes
+
+* **typo:**
+  *  moving script before bump —2 (e7bf3aa9)
+  *  moving script before bump (0f4c0aab)
+
+#### 0.1.4 (2019-08-03)
+
+##### Build System / Dependencies
+
+* **git:**
   *  try knittl method (afc53c66)
   *  try -s theirs (2f6923ba)
 
