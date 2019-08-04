@@ -76,7 +76,7 @@ git:
   addUntrackedFiles: true
   # [INFO] Output, that will be in tag page, example:
   # https://github.com/Kristinita/SashaReleaseItTesting/releases/tag/st3-0.1.5
-  changelog: changelog -f -
+  # changelog: changelog
   # [INFO] Check, that all files added and commited, if no — error:
   # “ERROR Working dir must be clean.”
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#clean-working-directory
