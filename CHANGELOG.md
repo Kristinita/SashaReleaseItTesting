@@ -1,5 +1,15 @@
 #### 0.2.0 (2019-08-04)
 
+##### Build System / Dependencies
+
+* **release-it:**  demo of git:changelog and hooks.after:bump:changelog (df2eb25b)
+
+##### Bug Fixes
+
+* **git:**  changelog command to file (81c500ab)
+
+#### 0.2.0 (2019-08-04)
+
 ##### Bug Fixes
 
 * **git:**  changelog command to file (81c500ab)
