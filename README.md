@@ -1,1 +1,1 @@
-Padam!
+Kira Goddess!

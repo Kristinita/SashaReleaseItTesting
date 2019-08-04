@@ -1,3 +1,15 @@
+#### 0.3.0 (2019-08-04)
+
+##### Documentation Changes
+
+* **release-it:**  details in .release-it.yaml (8776c262)
+
+##### Tests
+
+* **release-it:**
+  *  example changes (0692eec8)
+  *  return git.changelog (e8d14b3e)
+
 #### 0.2.2 (2019-08-04)
 
 ##### Build System / Dependencies
