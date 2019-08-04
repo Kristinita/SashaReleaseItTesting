@@ -36,14 +36,12 @@ hooks:
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A%0A++%23+Comment%0A++Kira%0A++Goddess%0A&type=json
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A+%0A++Kira%0A++%23+Comment%0A++Goddess%0A&type=json
   after:bump:
-    changelog
-  # [INFO][STAGE] Before “git add . --all”:
-  # before:bump:
     # [INFO] Append changes to top of CHANGELOG.md:
     # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
     # [INFO] “changelog” command add to “CHANGELOG.md”
-    # [NOTE] generate-changelog add to “CHANGELOG.md” current version,
-    # but must be next; so “-V ${version}”:
+    changelog
+  # [INFO][STAGE] Before “git add . --all”:
+  # before:bump:
     # changelog -f -
   # [INFO] Merge branches with commit, use “-no-ff”:
   # https://ru.stackoverflow.com/a/573773/199934
