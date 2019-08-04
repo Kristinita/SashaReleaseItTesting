@@ -9,6 +9,12 @@
 # https://www.npmjs.com/package/release-it#hooks
 # [NOTE] Use “.yaml”, not “.yml” extension, when possible:
 # https://interviewbubble.com/solved-yaml-or-yml-which-do-we-prefer/
+# Changelog:
+# https://keepachangelog.com/ru/1.0.0/
+# generate-changelog:
+# https://www.npmjs.com/package/generate-changelog
+# generate-changelog options:
+# https://www.npmjs.com/package/generate-changelog#cli
 # GitLab Flow:
 # https://docs.gitlab.com/ee/workflow/gitlab_flow.html
 # https://habr.com/ru/company/softmart/blog/316686/
@@ -29,11 +35,16 @@ hooks:
   # Compare:
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A%0A++%23+Comment%0A++Kira%0A++Goddess%0A&type=json
   # http://yaml-online-parser.appspot.com/?yaml=yaml%3A+%0A++Kira%0A++%23+Comment%0A++Goddess%0A&type=json
+  after:bump:
+    changelog -f -
   # [INFO][STAGE] Before “git add . --all”:
-  before:bump:
+  # before:bump:
     # [INFO] Append changes to top of CHANGELOG.md:
     # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
-    changelog -f - > CHANGELOG.md
+    # [INFO] “changelog” command add to “CHANGELOG.md”
+    # [NOTE] generate-changelog add to “CHANGELOG.md” current version,
+    # but must be next; so “-V ${version}”:
+    # changelog -f -
   # [INFO] Merge branches with commit, use “-no-ff”:
   # https://ru.stackoverflow.com/a/573773/199934
   # [INFO][STAGE] After “git add . --all”:
