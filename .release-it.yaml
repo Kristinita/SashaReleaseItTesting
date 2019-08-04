@@ -39,7 +39,10 @@ hooks:
     # [INFO] Append changes to top of CHANGELOG.md:
     # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
     # [INFO] “changelog” command add to “CHANGELOG.md”
-    changelog
+    # [WARNING] All variables instead of “${version}” works solely for hooks,
+    # not for another stages:
+    # https://www.npmjs.com/package/release-it#hooks
+    changelog -u https://${repo.host}/${repo.repository}
   # [INFO][STAGE] Before “git add . --all”:
   # before:bump:
     # changelog -f -
