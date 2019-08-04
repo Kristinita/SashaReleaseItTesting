@@ -1,3 +1,21 @@
+#### 0.2.2 (2019-08-04)
+
+##### Build System / Dependencies
+
+* **release-it:**
+  *  demo of git:changelog and hooks.after:bump:changelog — 3 (92636945)
+  *  demo of git:changelog and hooks.after:bump:changelog (7d4e8363)
+  *  demo of git:changelog and hooks.after:bump:changelog (df2eb25b)
+
+##### Documentation Changes
+
+* **release-it:**  details in .release-it.yaml (8776c262)
+
+##### Tests
+
+* **release-it:**  return git.changelog (e8d14b3e)
+* **changelog:**  try disable git.changelog (1bfca70a)
+
 #### 0.2.1 (2019-08-04)
 
 ##### Build System / Dependencies
