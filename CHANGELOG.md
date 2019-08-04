@@ -1,3 +1,13 @@
+#### 0.2.0 (2019-08-04)
+
+##### Bug Fixes
+
+* **git:**  changelog command to file (81c500ab)
+
+##### Tests
+
+* **git:**  try changelog command after bump (c8b439f4)
+
 #### 0.1.7 (2019-08-04)
 
 ##### Tests
