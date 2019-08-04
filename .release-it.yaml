@@ -39,7 +39,10 @@ hooks:
     # [INFO] Append changes to top of CHANGELOG.md:
     # https://kristinita.netlify.com/it-articles/fastest-way-to-add-new-version-of-sublime-text-3-package#buildCommand
     # [INFO] “changelog” command add to “CHANGELOG.md”
-    changelog
+    # [WARNING] All variables instead of “${version}” works solely for hooks,
+    # not for another stages:
+    # https://www.npmjs.com/package/release-it#hooks
+    changelog -u https://${repo.host}/${repo.repository}
   # [INFO][STAGE] Before “git add . --all”:
   # before:bump:
     # changelog -f -
@@ -79,7 +82,9 @@ git:
   # “ERROR Working dir must be clean.”
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#clean-working-directory
   # [NOTE] Useless option, if “addUntrackedFiles”: true
-  # requireCleanWorkingDir: true
+  # [NOTE] Set “false” for testing, otherwise release-it will not work,
+  # if you not add and commit every your change
+  requireCleanWorkingDir: false
   # [INFO] That prevent blank commits:
   # https://github.com/release-it/release-it/blob/master/docs/recipes/require-commits.md
   # https://github.com/release-it/release-it/blob/master/docs/prerequisites.md#no-commits

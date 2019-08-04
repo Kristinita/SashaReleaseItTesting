@@ -1,3 +1,13 @@
+#### 0.3.1 (2019-08-04)
+
+##### Build System / Dependencies
+
+* **release-it:**  set requireCleanWorkingDir to false ([7b4e9413](https://github.com/Kristinita/SashaReleaseItTesting/commit/7b4e941330c9ffa80ab17e2aaa230e7f65c4e88c))
+
+##### Tests
+
+* **release-it:**  example changes ([0692eec8](https://github.com/Kristinita/SashaReleaseItTesting/commit/0692eec8f2b48409bf27aa0305cec21257d450ad))
+
 #### 0.3.0 (2019-08-04)
 
 ##### Documentation Changes
